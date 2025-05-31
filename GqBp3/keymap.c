@@ -11,6 +11,7 @@ enum custom_keycodes {
   MAC_SIRI,
   MAC_DND,
   MAC_LOCK,
+  EN_DASH,
 };
 
 
@@ -70,6 +71,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case EN_DASH:
+    if (record->event.pressed) {
+      send_unicode_string("–");
+    }
+    return false;
     case ST_MACRO_0:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_LBRC)SS_DELAY(10)  SS_TAP(X_SPACE));
@@ -458,6 +464,10 @@ tap_dance_action_t tap_dance_actions[] = {
 // custom QMK
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
-const key_override_t **key_overrides = (const key_override_t *[]){&delete_key_override,
+const key_override_t option_dash_override = ko_make_basic(MOD_MASK_ALT, FR_6, EN_DASH);
+
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &delete_key_override,
+    &option_dash_override,
     NULL
 };
