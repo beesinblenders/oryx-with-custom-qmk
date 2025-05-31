@@ -72,7 +72,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case EN_DASH:
     if (record->event.pressed) {
-      send_unicode_string("–");
+      SEND_STRING("–");
     }
     return false;
     case ST_MACRO_0:
@@ -439,7 +439,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
 
 // custom QMK
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, EN_DASH);
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
 const key_override_t option_dash_override = ko_make_basic(MOD_MASK_ALT, KC_6, EN_DASH);
 
