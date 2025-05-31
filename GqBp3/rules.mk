@@ -8,3 +8,8 @@ REPEAT_KEY_ENABLE = yes
 COMBO_ENABLE = yes
 RGBLIGHT_ENABLE = no
 LTO_ENABLE = yes
+
+
+
+# custom QMK
+KEY_OVERRIDE_ENABLE = yes
