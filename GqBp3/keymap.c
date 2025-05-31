@@ -460,7 +460,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
 
 // custom QMK
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, EN_DASH);
 
 const key_override_t option_dash_override = ko_make_basic(MOD_MASK_ALT, KC_6, EN_DASH);
 
