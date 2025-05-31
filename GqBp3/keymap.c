@@ -23,17 +23,17 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(2, KC_P)
-#define DUAL_FUNC_1 LT(11, KC_F16)
-#define DUAL_FUNC_2 LT(10, KC_D)
-#define DUAL_FUNC_3 LT(3, KC_6)
-#define DUAL_FUNC_4 LT(8, KC_3)
-#define DUAL_FUNC_5 LT(14, KC_U)
+#define DUAL_FUNC_0 LT(6, KC_F19)
+#define DUAL_FUNC_1 LT(11, KC_8)
+#define DUAL_FUNC_2 LT(5, KC_F21)
+#define DUAL_FUNC_3 LT(14, KC_U)
+#define DUAL_FUNC_4 LT(7, KC_F2)
+#define DUAL_FUNC_5 LT(14, KC_D)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     DUAL_FUNC_0,    FR_AMP,         FR_EACU,        FR_DQUO,        DUAL_FUNC_1,    TD(DANCE_0),    KC_LEFT,                                        KC_RIGHT,       FR_MINS,        FR_EGRV,        FR_UNDS,        FR_CCED,        FR_AGRV,        KC_BSPC,
-    LT(2, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           KC_T,           KC_HYPR,                                        KC_HYPR,        KC_Y,           DUAL_FUNC_2,    KC_I,           KC_O,           KC_P,           TD(DANCE_3),
+    LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           KC_T,           KC_HYPR,                                        KC_HYPR,        KC_Y,           DUAL_FUNC_2,    KC_I,           KC_O,           KC_P,           TD(DANCE_3),
     MT(MOD_LCTL, KC_ESCAPE),MT(MOD_LGUI, FR_Q),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),LT(1, KC_G),                                                                    LT(1, KC_H),    MT(MOD_RSFT, KC_J),MT(MOD_RCTL, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RGUI, FR_M),KC_ENTER,
     TD(DANCE_1),    FR_W,           KC_X,           KC_C,           KC_V,           KC_B,           KC_MEH,                                         KC_MEH,         KC_N,           FR_COMM,        DUAL_FUNC_3,    DUAL_FUNC_4,    MT(MOD_RCTL, FR_EXLM),KC_RIGHT_SHIFT,
     TD(DANCE_2),    MT(MOD_LALT, FR_LESS),MT(MOD_LCTL, KC_BSPC),MT(MOD_LSFT, KC_DELETE),MT(MOD_LGUI, KC_SPACE),                                                                                                KC_SPACE,       MT(MOD_RSFT, FR_LPRN),MT(MOD_RCTL, FR_RPRN),ST_MACRO_0,     TD(DANCE_4),
@@ -97,9 +97,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       } else {
         if (record->event.pressed) {
-          layer_on(1);
+          layer_on(2);
         } else {
-          layer_off(1);
+          layer_off(2);
         }  
       }  
       return false;
