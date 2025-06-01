@@ -83,13 +83,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       //send_unicode_string("–");
     //}
     //return false;
-    case FR_MINS:
-      if (record->event.pressed && get_mods() & MOD_MASK_ALT) {
-        clear_mods();
-        send_string("–");
-        return false;
-      }
-      break;
+    //case FR_MINS:
+      //if (record->event.pressed && get_mods() & MOD_MASK_ALT) {
+        //clear_mods();
+        //send_string("–");
+        //return false;
+      //}
+      //break;
     case ST_MACRO_0:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_LBRC)SS_DELAY(10)  SS_TAP(X_SPACE));
