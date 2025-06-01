@@ -70,11 +70,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case EN_DASH:
-    if (record->event.pressed) {
-      send_unicode_string("–");
-    }
-    return false;
+    //case EN_DASH:
+    //if (record->event.pressed) {
+      //send_unicode_string("–");
+    //}
+    //return false;
+    case FR_MINS:
+      if (get_mods() & MOD_MASK_ALT) {
+        if (record->event.pressed) {
+          send_unicode_string("–");
+        }
+        return false;
+      }
+      break;
     case ST_MACRO_0:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_LBRC)SS_DELAY(10)  SS_TAP(X_SPACE));
@@ -441,12 +449,12 @@ tap_dance_action_t tap_dance_actions[] = {
 // custom QMK
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
-const key_override_t option_dash_override = ko_make_with_layers(
-    MOD_MASK_ALT, FR_MINS, EN_DASH, -1
-);
+//const key_override_t option_dash_override = ko_make_with_layers(
+    //MOD_MASK_ALT, FR_MINS, EN_DASH, -1
+//);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
-    &option_dash_override,
+    //&option_dash_override,
     NULL
 };
