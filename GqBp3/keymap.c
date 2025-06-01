@@ -76,10 +76,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //}
     //return false;
     case FR_MINS:
-      if (get_mods() & MOD_MASK_ALT) {
-        if (record->event.pressed) {
-          send_unicode_string("–");
-        }
+      if (record->event.pressed && get_mods() & MOD_MASK_ALT) {
+        clear_mods();
+        send_unicode_string("–");
+        set_mods(saved_mods);
         return false;
       }
       break;
