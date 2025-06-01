@@ -5,3 +5,6 @@
 #define HSS(report) host_system_send(record->event.pressed ? report : 0); return false
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
+
+
+#define UNICODE_SELECTED_MODES UC_OSX

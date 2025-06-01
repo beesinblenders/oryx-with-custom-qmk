@@ -72,7 +72,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case EN_DASH:
     if (record->event.pressed) {
-      SEND_STRING("–");
+      send_unicode_string("–");
     }
     return false;
     case ST_MACRO_0:
