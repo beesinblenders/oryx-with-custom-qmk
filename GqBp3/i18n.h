@@ -7,6 +7,7 @@
 #define FR_LPRN KC_5
 #define FR_A KC_Q
 #define FR_Z KC_W
+#define FR_Q KC_A
 #define FR_W KC_Z
 #define FR_LESS KC_NUBS
 #define KC_MAC_COPY LGUI(KC_C)
