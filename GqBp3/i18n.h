@@ -5,7 +5,6 @@
 #define FR_APOS KC_4
 #define FR_GRV ALGR(KC_7)
 #define FR_LPRN KC_5
-#define FR_RPRN KC_MINS
 #define FR_A KC_Q
 #define FR_Z KC_W
 #define FR_Q KC_A
@@ -27,6 +26,7 @@
 #define FR_COLN KC_DOT
 #define FR_BSLS ALGR(KC_8)
 #define FR_EXLM KC_SLSH
+#define FR_RPRN KC_MINS
 #define FR_DLR KC_RBRC
 #define FR_HASH ALGR(KC_3)
 #define FR_ASTR KC_NUHS

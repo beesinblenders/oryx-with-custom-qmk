@@ -22,12 +22,12 @@ enum tap_dance_codes {
   DANCE_5,
 };
 
-#define DUAL_FUNC_0 LT(13, KC_2)
-#define DUAL_FUNC_1 LT(2, KC_F2)
-#define DUAL_FUNC_2 LT(3, KC_8)
-#define DUAL_FUNC_3 LT(14, KC_F18)
-#define DUAL_FUNC_4 LT(3, KC_J)
-#define DUAL_FUNC_5 LT(1, KC_F)
+#define DUAL_FUNC_0 LT(4, KC_O)
+#define DUAL_FUNC_1 LT(6, KC_G)
+#define DUAL_FUNC_2 LT(11, KC_T)
+#define DUAL_FUNC_3 LT(9, KC_8)
+#define DUAL_FUNC_4 LT(14, KC_V)
+#define DUAL_FUNC_5 LT(6, KC_Y)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -64,6 +64,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LALT, KC_S):
+            return TAPPING_TERM + 100;
+        default:
+            return TAPPING_TERM;
+    }
+}
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -271,7 +279,6 @@ void dance_0_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[0].step = dance_step(state);
     switch (dance_state[0].step) {
         case SINGLE_TAP: register_code16(FR_LPRN); break;
-        case SINGLE_HOLD: register_code16(FR_RPRN); break;
         case DOUBLE_TAP: layer_move(2); break;
         case DOUBLE_SINGLE_TAP: tap_code16(FR_LPRN); register_code16(FR_LPRN);
     }
@@ -281,7 +288,6 @@ void dance_0_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[0].step) {
         case SINGLE_TAP: unregister_code16(FR_LPRN); break;
-        case SINGLE_HOLD: unregister_code16(FR_RPRN); break;
         case DOUBLE_SINGLE_TAP: unregister_code16(FR_LPRN); break;
     }
     dance_state[0].step = 0;
