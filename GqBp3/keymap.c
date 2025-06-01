@@ -22,12 +22,12 @@ enum tap_dance_codes {
   DANCE_5,
 };
 
-#define DUAL_FUNC_0 LT(5, KC_F17)
-#define DUAL_FUNC_1 LT(3, KC_F4)
-#define DUAL_FUNC_2 LT(12, KC_F23)
-#define DUAL_FUNC_3 LT(5, KC_2)
-#define DUAL_FUNC_4 LT(12, KC_E)
-#define DUAL_FUNC_5 LT(15, KC_F10)
+#define DUAL_FUNC_0 LT(9, KC_8)
+#define DUAL_FUNC_1 LT(10, KC_F14)
+#define DUAL_FUNC_2 LT(1, KC_2)
+#define DUAL_FUNC_3 LT(9, KC_F6)
+#define DUAL_FUNC_4 LT(9, KC_F4)
+#define DUAL_FUNC_5 LT(14, KC_F2)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -323,7 +323,7 @@ void dance_2_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[2].step = dance_step(state);
     switch (dance_state[2].step) {
         case SINGLE_TAP: register_code16(FR_CCIRC); break;
-        case DOUBLE_TAP: layer_move(1); break;
+        case DOUBLE_TAP: layer_move(2); break;
         case DOUBLE_SINGLE_TAP: tap_code16(FR_CCIRC); register_code16(FR_CCIRC);
     }
 }
