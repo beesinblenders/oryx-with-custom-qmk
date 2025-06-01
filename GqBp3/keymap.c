@@ -79,7 +79,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed && get_mods() & MOD_MASK_ALT) {
         clear_mods();
         send_unicode_string("–");
-        set_mods(saved_mods);
         return false;
       }
       break;
