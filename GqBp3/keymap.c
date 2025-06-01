@@ -11,7 +11,7 @@ enum custom_keycodes {
   MAC_SIRI,
   MAC_DND,
   MAC_LOCK,
-  EN_DASH,
+  //EN_DASH,
 };
 
 
@@ -78,7 +78,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case FR_MINS:
       if (record->event.pressed && get_mods() & MOD_MASK_ALT) {
         clear_mods();
-        send_unicode_string("–");
+        send_string("–");
         return false;
       }
       break;
