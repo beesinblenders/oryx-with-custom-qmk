@@ -24,16 +24,16 @@ enum tap_dance_codes {
   DANCE_5,
 };
 
-#define DUAL_FUNC_0 LT(3, KC_W)
-#define DUAL_FUNC_1 LT(6, KC_9)
-#define DUAL_FUNC_2 LT(14, KC_F8)
-#define DUAL_FUNC_3 LT(15, KC_3)
-#define DUAL_FUNC_4 LT(6, KC_J)
+#define DUAL_FUNC_0 LT(2, KC_F24)
+#define DUAL_FUNC_1 LT(10, KC_F15)
+#define DUAL_FUNC_2 LT(11, KC_M)
+#define DUAL_FUNC_3 LT(10, KC_F18)
+#define DUAL_FUNC_4 LT(10, KC_X)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     DUAL_FUNC_0,    FR_AMP,         FR_EACU,        FR_DQUO,        FR_APOS,        FR_LPRN,        KC_LEFT,                                        KC_RIGHT,       FR_MINS,        FR_EGRV,        FR_UNDS,        FR_CCED,        FR_AGRV,        KC_BSPC,
-    LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           KC_T,           KC_HYPR,                                        KC_HYPR,        KC_Y,           DUAL_FUNC_1,    KC_I,           KC_O,           KC_P,           TD(DANCE_2),
+    LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           LT(2, KC_T),    KC_HYPR,                                        KC_HYPR,        LT(2, KC_Y),    DUAL_FUNC_1,    KC_I,           KC_O,           KC_P,           TD(DANCE_2),
     MT(MOD_LCTL, KC_ESCAPE),MT(MOD_LGUI, FR_Q),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),LT(1, KC_G),                                                                    LT(1, KC_H),    MT(MOD_RSFT, KC_J),MT(MOD_RCTL, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RGUI, FR_M),LT(1, KC_ENTER),
     TD(DANCE_0),    FR_W,           KC_X,           KC_C,           KC_V,           KC_B,           KC_MEH,                                         KC_MEH,         KC_N,           FR_COMM,        DUAL_FUNC_2,    DUAL_FUNC_3,    MT(MOD_RCTL, FR_EXLM),MT(MOD_RSFT, KC_ENTER),
     TD(DANCE_1),    MT(MOD_LALT, FR_LESS),MT(MOD_LCTL, KC_BSPC),MT(MOD_LSFT, KC_DELETE),MT(MOD_LGUI, KC_TAB),                                                                                                MT(MOD_RGUI, KC_SPACE),MT(MOD_RSFT, FR_LPRN),MT(MOD_RCTL, FR_RPRN),ST_MACRO_0,     TD(DANCE_3),
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_TRANSPARENT,
-    KC_TRANSPARENT, FR_HASH,        FR_ASTR,        FR_LCBR,        FR_RCBR,        FR_PIPE,        KC_TRANSPARENT,                                 KC_PAGE_UP,     KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    TO(0),
+    KC_TRANSPARENT, FR_HASH,        FR_ASTR,        FR_LCBR,        FR_RCBR,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_PAGE_UP,     KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    TO(0),
     TO(0),          FR_CCIRC,       FR_DLR,         FR_LPRN,        FR_RPRN,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_MINUS,    KC_TRANSPARENT,
     KC_TRANSPARENT, FR_COMM,        FR_SCLN,        FR_LBRC,        FR_RBRC,        CW_TOGG,        KC_TRANSPARENT,                                 KC_PGDN,        ST_MACRO_1,     KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_PLUS,     KC_TRANSPARENT,
     KC_TRANSPARENT, FR_PERC,        FR_EXLM,        FR_LESS,        FR_GRTR,                                                                                                        KC_KP_0,        DUAL_FUNC_4,    FR_EQL,         FR_HASH,        FR_ASTR,
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [2] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,MAC_MISSION_CONTROL,MAC_SPOTLIGHT,  MAC_SIRI,       MAC_DND,                                        KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,QK_BOOT,
-    KC_TRANSPARENT, KC_F11,         KC_F12,         KC_F13,         KC_F16,         KC_F17,         KC_TRANSPARENT,                                 KC_MS_WH_DOWN,  KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_UP,       KC_TRANSPARENT, KC_TRANSPARENT, TO(0),
+    KC_TRANSPARENT, KC_F11,         KC_F12,         KC_F13,         KC_F16,         KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_MS_WH_DOWN,  KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_UP,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     TO(0),          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,                                                                         KC_TRANSPARENT, KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_MS_WH_UP,    KC_F13,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_MS_BTN1,     KC_MS_BTN2,     KC_LEFT,        KC_DOWN,        KC_RIGHT,
@@ -67,6 +67,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LT(2, KC_T):
+            return TAPPING_TERM + 50;
         case MT(MOD_LGUI, FR_Q):
             return TAPPING_TERM + 50;
         case MT(MOD_LALT, KC_S):
@@ -74,7 +76,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LCTL, KC_D):
             return TAPPING_TERM + 50;
         case MT(MOD_LSFT, KC_F):
-            return TAPPING_TERM + 100;
+            return TAPPING_TERM + 50;
         case LT(1, KC_G):
             return TAPPING_TERM + 50;
         case LT(1, KC_H):
@@ -331,6 +333,7 @@ void dance_2_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[2].step = dance_step(state);
     switch (dance_state[2].step) {
         case SINGLE_TAP: register_code16(FR_CCIRC); break;
+        case SINGLE_HOLD: layer_on(2); break;
         case DOUBLE_TAP: layer_move(2); break;
         case DOUBLE_SINGLE_TAP: tap_code16(FR_CCIRC); register_code16(FR_CCIRC);
     }
@@ -340,6 +343,9 @@ void dance_2_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[2].step) {
         case SINGLE_TAP: unregister_code16(FR_CCIRC); break;
+        case SINGLE_HOLD:
+          layer_off(2);
+        break;
         case DOUBLE_SINGLE_TAP: unregister_code16(FR_CCIRC); break;
     }
     dance_state[2].step = 0;
