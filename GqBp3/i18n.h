@@ -3,7 +3,6 @@
 #define FR_EACU KC_2
 #define FR_DQUO KC_3
 #define FR_APOS KC_4
-#define FR_GRV ALGR(KC_7)
 #define FR_LPRN KC_5
 #define FR_A KC_Q
 #define FR_Z KC_W

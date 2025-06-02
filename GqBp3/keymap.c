@@ -22,19 +22,18 @@ enum tap_dance_codes {
   DANCE_5,
 };
 
-#define DUAL_FUNC_0 LT(2, KC_V)
-#define DUAL_FUNC_1 LT(9, KC_V)
-#define DUAL_FUNC_2 LT(1, KC_9)
-#define DUAL_FUNC_3 LT(5, KC_M)
-#define DUAL_FUNC_4 LT(6, KC_0)
-#define DUAL_FUNC_5 LT(5, KC_F6)
+#define DUAL_FUNC_0 LT(3, KC_W)
+#define DUAL_FUNC_1 LT(6, KC_9)
+#define DUAL_FUNC_2 LT(14, KC_F8)
+#define DUAL_FUNC_3 LT(15, KC_3)
+#define DUAL_FUNC_4 LT(6, KC_J)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    DUAL_FUNC_0,    FR_AMP,         FR_EACU,        FR_DQUO,        DUAL_FUNC_1,    TD(DANCE_0),    KC_LEFT,                                        KC_RIGHT,       FR_MINS,        FR_EGRV,        FR_UNDS,        FR_CCED,        FR_AGRV,        KC_BSPC,
-    LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           KC_T,           KC_HYPR,                                        KC_HYPR,        KC_Y,           DUAL_FUNC_2,    KC_I,           KC_O,           KC_P,           TD(DANCE_2),
+    DUAL_FUNC_0,    FR_AMP,         FR_EACU,        FR_DQUO,        FR_APOS,        FR_LPRN,        KC_LEFT,                                        KC_RIGHT,       FR_MINS,        FR_EGRV,        FR_UNDS,        FR_CCED,        FR_AGRV,        KC_BSPC,
+    LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           KC_T,           KC_HYPR,                                        KC_HYPR,        KC_Y,           DUAL_FUNC_1,    KC_I,           KC_O,           KC_P,           TD(DANCE_2),
     MT(MOD_LCTL, KC_ESCAPE),MT(MOD_LGUI, FR_Q),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),LT(1, KC_G),                                                                    LT(1, KC_H),    MT(MOD_RSFT, KC_J),MT(MOD_RCTL, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RGUI, FR_M),LT(1, KC_ENTER),
-    KC_LEFT_SHIFT,  FR_W,           KC_X,           KC_C,           KC_V,           KC_B,           KC_MEH,                                         KC_MEH,         KC_N,           FR_COMM,        DUAL_FUNC_3,    DUAL_FUNC_4,    MT(MOD_RCTL, FR_EXLM),MT(MOD_RSFT, KC_ENTER),
+    TD(DANCE_0),    FR_W,           KC_X,           KC_C,           KC_V,           KC_B,           KC_MEH,                                         KC_MEH,         KC_N,           FR_COMM,        DUAL_FUNC_2,    DUAL_FUNC_3,    MT(MOD_RCTL, FR_EXLM),MT(MOD_RSFT, KC_ENTER),
     TD(DANCE_1),    MT(MOD_LALT, FR_LESS),MT(MOD_LCTL, KC_BSPC),MT(MOD_LSFT, KC_DELETE),MT(MOD_LGUI, KC_TAB),                                                                                                MT(MOD_RGUI, KC_SPACE),MT(MOD_RSFT, FR_LPRN),MT(MOD_RCTL, FR_RPRN),ST_MACRO_0,     TD(DANCE_3),
                                                                                                     KC_MAC_COPY,    KC_MAC_PASTE,   KC_LEFT,        KC_RIGHT,
                                                                                                                     KC_MAC_CUT,     KC_UP,
@@ -45,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, FR_HASH,        FR_ASTR,        FR_LCBR,        FR_RCBR,        FR_PIPE,        KC_TRANSPARENT,                                 KC_PAGE_UP,     KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    TO(0),
     TO(0),          FR_CCIRC,       FR_DLR,         FR_LPRN,        FR_RPRN,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_MINUS,    KC_TRANSPARENT,
     KC_TRANSPARENT, FR_COMM,        FR_SCLN,        FR_LBRC,        FR_RBRC,        CW_TOGG,        KC_TRANSPARENT,                                 KC_PGDN,        ST_MACRO_1,     KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_PLUS,     KC_TRANSPARENT,
-    KC_TRANSPARENT, FR_PERC,        FR_EXLM,        FR_LESS,        FR_GRTR,                                                                                                        KC_KP_0,        DUAL_FUNC_5,    FR_EQL,         FR_HASH,        FR_ASTR,
+    KC_TRANSPARENT, FR_PERC,        FR_EXLM,        FR_LESS,        FR_GRTR,                                                                                                        KC_KP_0,        DUAL_FUNC_4,    FR_EQL,         FR_HASH,        FR_ASTR,
                                                                                                     LGUI(FR_A),     KC_TRANSPARENT, KC_HOME,        KC_END,
                                                                                                                     KC_TRANSPARENT, KC_PAGE_UP,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PGDN,        KC_TRANSPARENT, TD(DANCE_4)
@@ -131,21 +130,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DUAL_FUNC_1:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
-          register_code16(FR_APOS);
-        } else {
-          unregister_code16(FR_APOS);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(FR_GRV);
-        } else {
-          unregister_code16(FR_GRV);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_2:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
           register_code16(KC_U);
         } else {
           unregister_code16(KC_U);
@@ -158,7 +142,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_3:
+    case DUAL_FUNC_2:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(FR_SCLN);
@@ -173,7 +157,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_4:
+    case DUAL_FUNC_3:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(FR_COLN);
@@ -188,7 +172,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_5:
+    case DUAL_FUNC_4:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(FR_COMM);
@@ -278,35 +262,21 @@ uint8_t dance_step(tap_dance_state_t *state) {
 }
 
 
-void on_dance_0(tap_dance_state_t *state, void *user_data);
 void dance_0_finished(tap_dance_state_t *state, void *user_data);
 void dance_0_reset(tap_dance_state_t *state, void *user_data);
-
-void on_dance_0(tap_dance_state_t *state, void *user_data) {
-    if(state->count == 3) {
-        tap_code16(FR_LPRN);
-        tap_code16(FR_LPRN);
-        tap_code16(FR_LPRN);
-    }
-    if(state->count > 3) {
-        tap_code16(FR_LPRN);
-    }
-}
 
 void dance_0_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[0].step = dance_step(state);
     switch (dance_state[0].step) {
-        case SINGLE_TAP: register_code16(FR_LPRN); break;
+        case SINGLE_HOLD: register_code16(KC_LEFT_SHIFT); break;
         case DOUBLE_TAP: layer_move(2); break;
-        case DOUBLE_SINGLE_TAP: tap_code16(FR_LPRN); register_code16(FR_LPRN);
     }
 }
 
 void dance_0_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[0].step) {
-        case SINGLE_TAP: unregister_code16(FR_LPRN); break;
-        case DOUBLE_SINGLE_TAP: unregister_code16(FR_LPRN); break;
+        case SINGLE_HOLD: unregister_code16(KC_LEFT_SHIFT); break;
     }
     dance_state[0].step = 0;
 }
@@ -444,7 +414,7 @@ void dance_5_reset(tap_dance_state_t *state, void *user_data) {
 }
 
 tap_dance_action_t tap_dance_actions[] = {
-        [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
+        [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_0_finished, dance_0_reset),
         [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_1_finished, dance_1_reset),
         [DANCE_2] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
         [DANCE_3] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_3, dance_3_finished, dance_3_reset),
