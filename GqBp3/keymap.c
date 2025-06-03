@@ -23,19 +23,19 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(9, KC_X)
-#define DUAL_FUNC_1 LT(7, KC_O)
-#define DUAL_FUNC_2 LT(8, KC_F24)
-#define DUAL_FUNC_3 LT(6, KC_F23)
-#define DUAL_FUNC_4 LT(6, KC_Q)
-#define DUAL_FUNC_5 LT(12, KC_F6)
+#define DUAL_FUNC_0 LT(2, KC_F3)
+#define DUAL_FUNC_1 LT(7, KC_F15)
+#define DUAL_FUNC_2 LT(7, KC_F9)
+#define DUAL_FUNC_3 LT(14, KC_K)
+#define DUAL_FUNC_4 LT(2, KC_Q)
+#define DUAL_FUNC_5 LT(5, KC_2)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     DUAL_FUNC_0,    FR_AMP,         FR_EACU,        FR_DQUO,        FR_APOS,        FR_LPRN,        KC_LEFT,                                        KC_RIGHT,       FR_MINS,        FR_EGRV,        FR_UNDS,        FR_CCED,        FR_AGRV,        KC_BSPC,
-    LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           LT(2, KC_T),    KC_HYPR,                                        KC_HYPR,        LT(2, KC_Y),    DUAL_FUNC_2,    KC_I,           KC_O,           KC_P,           TD(DANCE_2),
+    LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           LT(2, KC_T),    ALL_T(KC_UP),                                   ALL_T(KC_PAGE_UP),LT(2, KC_Y),    DUAL_FUNC_2,    KC_I,           KC_O,           KC_P,           TD(DANCE_2),
     MT(MOD_LCTL, KC_ESCAPE),MT(MOD_LGUI, FR_Q),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),LT(1, KC_G),                                                                    LT(1, KC_H),    MT(MOD_RSFT, KC_J),MT(MOD_RCTL, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RGUI, FR_M),LT(1, KC_ENTER),
-    KC_LEFT_SHIFT,  FR_W,           KC_X,           KC_C,           LT(1, KC_V),    KC_B,           KC_MEH,                                         KC_MEH,         KC_N,           LT(1, FR_COMM), DUAL_FUNC_3,    DUAL_FUNC_4,    MT(MOD_RCTL, FR_EXLM),MT(MOD_RSFT, KC_ENTER),
+    KC_LEFT_SHIFT,  FR_W,           KC_X,           KC_C,           LT(1, KC_V),    KC_B,           MEH_T(KC_DOWN),                                 MEH_T(KC_PGDN), KC_N,           LT(1, FR_COMM), DUAL_FUNC_3,    DUAL_FUNC_4,    MT(MOD_RCTL, FR_EXLM),MT(MOD_RSFT, KC_ENTER),
     MT(MOD_LGUI, FR_LESS),DUAL_FUNC_1,    MT(MOD_LCTL, KC_BSPC),MT(MOD_LSFT, KC_DELETE),MT(MOD_LGUI, KC_TAB),                                                                                                MT(MOD_RGUI, KC_SPACE),MT(MOD_RSFT, FR_LPRN),MT(MOD_RCTL, FR_RPRN),ST_MACRO_0,     MT(MOD_RGUI, FR_DLR),
                                                                                                     KC_MAC_COPY,    KC_MAC_PASTE,   KC_LEFT,        KC_RIGHT,
                                                                                                                     KC_MAC_CUT,     KC_UP,
