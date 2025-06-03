@@ -9,6 +9,7 @@
 #define FR_Q KC_A
 #define FR_W KC_Z
 #define FR_LESS KC_NUBS
+#define FR_PERC S(KC_QUOT)
 #define KC_MAC_COPY LGUI(KC_C)
 #define KC_MAC_PASTE LGUI(KC_V)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -32,8 +33,6 @@
 #define FR_LCBR ALGR(KC_4)
 #define FR_RCBR ALGR(KC_EQL)
 #define FR_LBRC ALGR(KC_5)
-#define FR_RBRC ALGR(KC_MINS)
-#define FR_PERC S(KC_QUOT)
 #define FR_GRTR S(KC_NUBS)
 #define FR_DOT S(KC_COMM)
 #define FR_EQL KC_EQL
