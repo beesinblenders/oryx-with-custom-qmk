@@ -9,6 +9,8 @@ enum custom_keycodes {
   MAC_SIRI,
   MAC_DND,
   MAC_LOCK,
+  ST_MACRO_0,
+  ST_MACRO_1,
   //EN_DASH,
 };
 
