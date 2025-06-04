@@ -4,8 +4,6 @@
 
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
-  ST_MACRO_0,
-  ST_MACRO_1,
   MAC_MISSION_CONTROL,
   MAC_SPOTLIGHT,
   MAC_SIRI,
@@ -25,12 +23,13 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(9, KC_F23)
-#define DUAL_FUNC_1 LT(8, KC_P)
-#define DUAL_FUNC_2 LT(5, KC_B)
-#define DUAL_FUNC_3 LT(10, KC_F9)
-#define DUAL_FUNC_4 LT(1, KC_R)
-#define DUAL_FUNC_5 LT(13, KC_V)
+#define DUAL_FUNC_0 LT(8, KC_J)
+#define DUAL_FUNC_1 LT(5, KC_F10)
+#define DUAL_FUNC_2 LT(5, KC_A)
+#define DUAL_FUNC_3 LT(7, KC_F11)
+#define DUAL_FUNC_4 LT(12, KC_Z)
+#define DUAL_FUNC_5 LT(13, KC_G)
+#define DUAL_FUNC_6 LT(15, KC_7)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -38,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT(1, KC_TAB),  FR_A,           FR_Z,           KC_E,           KC_R,           LT(2, KC_T),    ALL_T(KC_UP),                                   ALL_T(KC_PAGE_UP),LT(2, KC_Y),    DUAL_FUNC_2,    KC_I,           KC_O,           KC_P,           TD(DANCE_2),
     MT(MOD_LCTL, KC_ESCAPE),MT(MOD_LGUI, FR_Q),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),LT(1, KC_G),                                                                    LT(1, KC_H),    MT(MOD_RSFT, KC_J),MT(MOD_RCTL, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RGUI, FR_M),LT(1, KC_ENTER),
     KC_LEFT_SHIFT,  FR_W,           KC_X,           KC_C,           KC_V,           KC_B,           MEH_T(KC_DOWN),                                 MEH_T(KC_PGDN), KC_N,           FR_COMM,        DUAL_FUNC_3,    DUAL_FUNC_4,    MT(MOD_RCTL, FR_EXLM),MT(MOD_RSFT, KC_ENTER),
-    MT(MOD_LGUI, FR_LESS),DUAL_FUNC_1,    MT(MOD_LCTL, KC_BSPC),MT(MOD_LSFT, KC_DELETE),MT(MOD_LGUI, KC_TAB),                                                                                                MT(MOD_RGUI, KC_SPACE),MT(MOD_RSFT, FR_LPRN),MT(MOD_RCTL, FR_RPRN),ST_MACRO_0,     MT(MOD_RGUI, FR_DLR),
+    MT(MOD_LGUI, FR_LESS),DUAL_FUNC_1,    MT(MOD_LCTL, KC_BSPC),MT(MOD_LSFT, KC_DELETE),MT(MOD_LGUI, KC_TAB),                                                                                                MT(MOD_RGUI, KC_SPACE),MT(MOD_RSFT, FR_LPRN),MT(MOD_RCTL, FR_RPRN),DUAL_FUNC_5,    MT(MOD_RGUI, FR_DLR),
                                                                                                     KC_MAC_COPY,    KC_MAC_PASTE,   KC_LEFT,        KC_RIGHT,
                                                                                                                     KC_MAC_CUT,     KC_UP,
                                                                                     TD(DANCE_0),    TD(DANCE_1),    LGUI(FR_Z),     KC_DOWN,        TD(DANCE_3),    TD(DANCE_4)
@@ -47,8 +46,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_TRANSPARENT,
     KC_TRANSPARENT, FR_HASH,        FR_ASTR,        FR_LCBR,        FR_RCBR,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_PAGE_UP,     KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    TO(0),
     TO(0),          FR_CCIRC,       FR_DLR,         FR_LPRN,        FR_RPRN,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_MINUS,    KC_TRANSPARENT,
-    KC_TRANSPARENT, FR_COMM,        FR_SCLN,        FR_LBRC,        KC_TRANSPARENT, CW_TOGG,        KC_TRANSPARENT,                                 KC_PGDN,        ST_MACRO_1,     KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_PLUS,     KC_TRANSPARENT,
-    KC_TRANSPARENT, FR_PERC,        FR_EXLM,        FR_LESS,        FR_GRTR,                                                                                                        KC_KP_0,        DUAL_FUNC_5,    FR_EQL,         FR_HASH,        FR_ASTR,
+    KC_TRANSPARENT, FR_COMM,        FR_SCLN,        FR_LBRC,        KC_TRANSPARENT, CW_TOGG,        KC_TRANSPARENT,                                 KC_PGDN,        KC_TRANSPARENT, KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_PLUS,     KC_TRANSPARENT,
+    KC_TRANSPARENT, FR_PERC,        FR_EXLM,        FR_LESS,        FR_GRTR,                                                                                                        KC_KP_0,        DUAL_FUNC_6,    FR_EQL,         FR_HASH,        FR_ASTR,
                                                                                                     LGUI(FR_A),     KC_TRANSPARENT, KC_HOME,        KC_END,
                                                                                                                     KC_TRANSPARENT, KC_PAGE_UP,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PGDN,        KC_TRANSPARENT, TD(DANCE_5)
@@ -206,6 +205,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }  
       return false;
     case DUAL_FUNC_5:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(FR_CCIRC);
+        } else {
+          unregister_code16(FR_CCIRC);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_RIGHT_ALT);
+        } else {
+          unregister_code16(KC_RIGHT_ALT);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_6:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(FR_COMM);
