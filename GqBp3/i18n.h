@@ -33,6 +33,7 @@
 #define FR_LCBR ALGR(KC_4)
 #define FR_RCBR ALGR(KC_EQL)
 #define FR_LBRC ALGR(KC_5)
+#define FR_RBRC ALGR(KC_MINS)
 #define FR_GRTR S(KC_NUBS)
 #define FR_DOT S(KC_COMM)
 #define FR_EQL KC_EQL

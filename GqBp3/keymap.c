@@ -25,13 +25,13 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(8, KC_J)
-#define DUAL_FUNC_1 LT(5, KC_F10)
-#define DUAL_FUNC_2 LT(5, KC_A)
-#define DUAL_FUNC_3 LT(7, KC_F11)
-#define DUAL_FUNC_4 LT(12, KC_Z)
-#define DUAL_FUNC_5 LT(13, KC_G)
-#define DUAL_FUNC_6 LT(15, KC_7)
+#define DUAL_FUNC_0 LT(3, KC_C)
+#define DUAL_FUNC_1 LT(10, KC_F)
+#define DUAL_FUNC_2 LT(14, KC_F11)
+#define DUAL_FUNC_3 LT(8, KC_F19)
+#define DUAL_FUNC_4 LT(6, KC_F2)
+#define DUAL_FUNC_5 LT(12, KC_1)
+#define DUAL_FUNC_6 LT(15, KC_G)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_TRANSPARENT,
     KC_TRANSPARENT, FR_HASH,        FR_ASTR,        FR_LCBR,        FR_RCBR,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_PAGE_UP,     KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    TO(0),
     TO(0),          FR_CCIRC,       FR_DLR,         FR_LPRN,        FR_RPRN,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_MINUS,    KC_TRANSPARENT,
-    KC_TRANSPARENT, FR_COMM,        FR_SCLN,        FR_LBRC,        KC_TRANSPARENT, CW_TOGG,        KC_TRANSPARENT,                                 KC_PGDN,        KC_TRANSPARENT, KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_PLUS,     KC_TRANSPARENT,
+    KC_TRANSPARENT, FR_COMM,        FR_SCLN,        FR_LBRC,        FR_RBRC,        CW_TOGG,        KC_TRANSPARENT,                                 KC_PGDN,        KC_TRANSPARENT, KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_PLUS,     KC_TRANSPARENT,
     KC_TRANSPARENT, FR_PERC,        FR_EXLM,        FR_LESS,        FR_GRTR,                                                                                                        KC_KP_0,        DUAL_FUNC_6,    FR_EQL,         FR_HASH,        FR_ASTR,
                                                                                                     LGUI(FR_A),     KC_TRANSPARENT, KC_HOME,        KC_END,
                                                                                                                     KC_TRANSPARENT, KC_PAGE_UP,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PGDN,        KC_TRANSPARENT, TD(DANCE_5)
+                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, LGUI(KC_V),     KC_PGDN,        KC_TRANSPARENT, TD(DANCE_5)
   ),
   [2] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,MAC_MISSION_CONTROL,MAC_SPOTLIGHT,  MAC_SIRI,       MAC_DND,                                        KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,QK_BOOT,
@@ -72,8 +72,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(2, KC_T):
             return TAPPING_TERM + 50;
-        case MT(MOD_LGUI, FR_Q):
-            return TAPPING_TERM + 50;
         case MT(MOD_LALT, KC_S):
             return TAPPING_TERM + 50;
         case MT(MOD_LCTL, KC_D):
@@ -81,16 +79,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LSFT, KC_F):
             return TAPPING_TERM + 50;
         case LT(1, KC_G):
-            return TAPPING_TERM + 50;
+            return TAPPING_TERM -50;
         case LT(1, KC_H):
-            return TAPPING_TERM + 50;
+            return TAPPING_TERM -50;
         case MT(MOD_RSFT, KC_J):
             return TAPPING_TERM + 50;
         case MT(MOD_RCTL, KC_K):
             return TAPPING_TERM + 50;
         case MT(MOD_RALT, KC_L):
-            return TAPPING_TERM + 50;
-        case MT(MOD_RGUI, FR_M):
             return TAPPING_TERM + 50;
         default:
             return TAPPING_TERM;
