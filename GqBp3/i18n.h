@@ -18,7 +18,6 @@
 #define FR_UNDS KC_8
 #define FR_CCED KC_9
 #define FR_AGRV KC_0
-#define FR_UGRV KC_QUOT
 #define FR_CCIRC KC_LBRC
 #define FR_M KC_SCLN
 #define FR_COMM KC_M
