@@ -25,13 +25,13 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(3, KC_C)
-#define DUAL_FUNC_1 LT(10, KC_F)
-#define DUAL_FUNC_2 LT(14, KC_F11)
-#define DUAL_FUNC_3 LT(8, KC_F19)
-#define DUAL_FUNC_4 LT(6, KC_F2)
-#define DUAL_FUNC_5 LT(12, KC_1)
-#define DUAL_FUNC_6 LT(15, KC_G)
+#define DUAL_FUNC_0 LT(1, KC_R)
+#define DUAL_FUNC_1 LT(12, KC_F16)
+#define DUAL_FUNC_2 LT(11, KC_F8)
+#define DUAL_FUNC_3 LT(6, KC_X)
+#define DUAL_FUNC_4 LT(10, KC_U)
+#define DUAL_FUNC_5 LT(11, KC_Y)
+#define DUAL_FUNC_6 LT(3, KC_D)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, FR_PERC,        FR_EXLM,        FR_LESS,        FR_GRTR,                                                                                                        KC_KP_0,        DUAL_FUNC_6,    FR_EQL,         FR_HASH,        FR_ASTR,
                                                                                                     LGUI(FR_A),     KC_TRANSPARENT, KC_HOME,        KC_END,
                                                                                                                     KC_TRANSPARENT, KC_PAGE_UP,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, LGUI(KC_V),     KC_PGDN,        KC_TRANSPARENT, TD(DANCE_5)
+                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, LGUI(FR_W),     KC_PGDN,        KC_TRANSPARENT, TD(DANCE_5)
   ),
   [2] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,MAC_MISSION_CONTROL,MAC_SPOTLIGHT,  MAC_SIRI,       MAC_DND,                                        KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,QK_BOOT,
@@ -72,6 +72,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(2, KC_T):
             return TAPPING_TERM + 50;
+        case MT(MOD_LGUI, FR_Q):
+            return TAPPING_TERM -50;
         case MT(MOD_LALT, KC_S):
             return TAPPING_TERM + 50;
         case MT(MOD_LCTL, KC_D):
@@ -80,6 +82,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM + 50;
         case LT(1, KC_G):
             return TAPPING_TERM -50;
+        case TD(DANCE_0):
+            return TAPPING_TERM -100;
         case LT(1, KC_H):
             return TAPPING_TERM -50;
         case MT(MOD_RSFT, KC_J):
@@ -88,6 +92,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM + 50;
         case MT(MOD_RALT, KC_L):
             return TAPPING_TERM + 50;
+        case MT(MOD_RGUI, FR_M):
+            return TAPPING_TERM -50;
+        case TD(DANCE_4):
+            return TAPPING_TERM -100;
         default:
             return TAPPING_TERM;
     }
