@@ -21,12 +21,12 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(3, KC_J)
-#define DUAL_FUNC_1 LT(3, KC_8)
-#define DUAL_FUNC_2 LT(8, KC_U)
-#define DUAL_FUNC_3 LT(13, KC_R)
-#define DUAL_FUNC_4 LT(14, KC_F14)
-#define DUAL_FUNC_5 LT(13, KC_7)
+#define DUAL_FUNC_0 LT(1, KC_2)
+#define DUAL_FUNC_1 LT(6, KC_T)
+#define DUAL_FUNC_2 LT(15, KC_8)
+#define DUAL_FUNC_3 LT(1, KC_D)
+#define DUAL_FUNC_4 LT(15, KC_F2)
+#define DUAL_FUNC_5 LT(13, KC_F11)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -60,6 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_WH_UP,    KC_TRANSPARENT, TD(DANCE_6)
   ),
 };
+
 
 
 
