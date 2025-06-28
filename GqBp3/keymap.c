@@ -2,8 +2,12 @@
 #include "version.h"
 #include "i18n.h"
 
+#ifndef ZSA_SAFE_RANGE
+#define ZSA_SAFE_RANGE SAFE_RANGE
+#endif
+
 enum custom_keycodes {
-  RGB_SLD = EZ_SAFE_RANGE,
+  RGB_SLD = ZSA_SAFE_RANGE,
   MAC_MISSION_CONTROL,
   MAC_SPOTLIGHT,
   MAC_SIRI,
@@ -21,12 +25,12 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(9, KC_F9)
-#define DUAL_FUNC_1 LT(9, KC_F7)
-#define DUAL_FUNC_2 LT(3, KC_B)
-#define DUAL_FUNC_3 LT(6, KC_F4)
-#define DUAL_FUNC_4 LT(9, KC_B)
-#define DUAL_FUNC_5 LT(8, KC_7)
+#define DUAL_FUNC_0 LT(4, KC_B)
+#define DUAL_FUNC_1 LT(4, KC_9)
+#define DUAL_FUNC_2 LT(5, KC_V)
+#define DUAL_FUNC_3 LT(9, KC_C)
+#define DUAL_FUNC_4 LT(12, KC_F18)
+#define DUAL_FUNC_5 LT(8, KC_F8)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -68,10 +72,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(2, KC_T):
             return TAPPING_TERM + 50;
-        case MT(MOD_LSFT, KC_F):
-            return TAPPING_TERM -50;
-        case MT(MOD_RSFT, KC_J):
-            return TAPPING_TERM -50;
         default:
             return TAPPING_TERM;
     }
