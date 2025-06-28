@@ -31,7 +31,6 @@
 #define FR_ASTR KC_NUHS
 #define FR_LCBR ALGR(KC_4)
 #define FR_RCBR ALGR(KC_EQL)
-#define FR_PIPE ALGR(KC_6)
 #define FR_LBRC ALGR(KC_5)
 #define FR_RBRC ALGR(KC_MINS)
 #define FR_GRTR S(KC_NUBS)
