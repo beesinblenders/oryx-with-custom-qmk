@@ -1,14 +1,15 @@
 #define CHORDAL_HOLD
 #undef TAPPING_TERM
-#define TAPPING_TERM 170
+#define TAPPING_TERM 150
 
 #define PERMISSIVE_HOLD
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
+#define AUTO_SHIFT_TIMEOUT 160
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_SPECIAL
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "GqBp3/Qzqb6n"
+#define SERIAL_NUMBER "GqBp3/rbDVN6"
 #define LAYER_STATE_8BIT
 #define HSS(report) host_system_send(record->event.pressed ? report : 0); return false
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
