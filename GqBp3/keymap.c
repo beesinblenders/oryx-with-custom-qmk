@@ -29,12 +29,12 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(7, KC_6)
-#define DUAL_FUNC_1 LT(4, KC_C)
-#define DUAL_FUNC_2 LT(2, KC_E)
-#define DUAL_FUNC_3 LT(2, KC_F3)
-#define DUAL_FUNC_4 LT(11, KC_F12)
-#define DUAL_FUNC_5 LT(14, KC_T)
+#define DUAL_FUNC_0 LT(8, KC_F21)
+#define DUAL_FUNC_1 LT(2, KC_I)
+#define DUAL_FUNC_2 LT(14, KC_F6)
+#define DUAL_FUNC_3 LT(5, KC_F8)
+#define DUAL_FUNC_4 LT(4, KC_0)
+#define DUAL_FUNC_5 LT(5, KC_F1)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -93,7 +93,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LT(2, KC_T):
             return g_tapping_term + 70;
         case MT(MOD_LGUI, KC_SPACE):
-            return g_tapping_term -30;
+            return g_tapping_term -100;
+        case TD(DANCE_0):
+            return g_tapping_term -100;
+        case MT(MOD_RGUI, KC_SPACE):
+            return g_tapping_term -100;
+        case TD(DANCE_4):
+            return g_tapping_term -100;
         default:
             return g_tapping_term;
     }
