@@ -29,12 +29,12 @@ enum tap_dance_codes {
   DANCE_6,
 };
 
-#define DUAL_FUNC_0 LT(14, KC_H)
-#define DUAL_FUNC_1 LT(13, KC_F3)
-#define DUAL_FUNC_2 LT(14, KC_F1)
-#define DUAL_FUNC_3 LT(10, KC_E)
-#define DUAL_FUNC_4 LT(8, KC_K)
-#define DUAL_FUNC_5 LT(7, KC_6)
+#define DUAL_FUNC_0 LT(2, KC_7)
+#define DUAL_FUNC_1 LT(15, KC_W)
+#define DUAL_FUNC_2 LT(10, KC_8)
+#define DUAL_FUNC_3 LT(3, KC_9)
+#define DUAL_FUNC_4 LT(3, KC_F23)
+#define DUAL_FUNC_5 LT(12, KC_D)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_F11,         KC_F12,         KC_F13,         KC_F16,         KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_MS_WH_DOWN,  KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_UP,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     TO(0),          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,                                                                         KC_TRANSPARENT, KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_MS_WH_UP,    KC_F13,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_MS_BTN1,     KC_MS_BTN2,     KC_LEFT,        KC_DOWN,        KC_RIGHT,
+    KC_TRANSPARENT, KC_TRANSPARENT, QK_DYNAMIC_TAPPING_TERM_PRINT,QK_DYNAMIC_TAPPING_TERM_DOWN,QK_DYNAMIC_TAPPING_TERM_UP,                                                                                                KC_MS_BTN1,     KC_MS_BTN2,     KC_LEFT,        KC_DOWN,        KC_RIGHT,
                                                                                                     KC_TRANSPARENT, KC_APPLICATION, KC_MS_WH_RIGHT, KC_MS_WH_LEFT,
                                                                                                                     KC_TRANSPARENT, KC_MS_WH_DOWN,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_WH_UP,    KC_TRANSPARENT, TD(DANCE_6)
@@ -70,14 +70,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox(
+  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
+  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
+  'L', 'L', 'L', 'L', 'L', 'L', 
+  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
+  'L', 'L', 'L', 'L', 'L',
+  'L', 'L',
+  'L', 'L', 'L', 'L',
+  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
+  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
+  'R', 'R', 'R', 'R', 'R', 'R', 
+  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
+  'R', 'R', 'R', 'R', 'R', 
+  'R', 'R', 
+  'R', 'R', 'R', 'R'
+);
 
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(2, KC_T):
-            return TAPPING_TERM + 70;
+            return g_tapping_term + 70;
         default:
-            return TAPPING_TERM;
+            return g_tapping_term;
     }
 }
 
