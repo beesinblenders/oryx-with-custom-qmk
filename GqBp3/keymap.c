@@ -1,6 +1,11 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "i18n.h"
+#include "key_override.h"
+
+// Déclare le symbole attendu par l’introspection QMK.
+// Tableau **vide** = aucun override, et ARRAY_SIZE(key_overrides) == 0.
+const key_override_t *key_overrides[] = {};
 
 #ifndef ZSA_SAFE_RANGE
 #define ZSA_SAFE_RANGE SAFE_RANGE
